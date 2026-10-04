@@ -9,6 +9,10 @@
 #include <vector>
 
 #if defined(PLATFORM_WINDOWS)
+  //NOMINMAX keeps windows.h from redefining min/max macros, which would shadow nall::min/max
+  #undef  NOMINMAX
+  #define NOMINMAX
+  #undef  WIN32_LEAN_AND_MEAN
   #define WIN32_LEAN_AND_MEAN
   #include <winsock2.h>
   #include <ws2tcpip.h>
